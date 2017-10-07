@@ -1,0 +1,17 @@
+.blogs-showcase {
+    position: relative;
+    opacity: 0.80;
+    background-image: url('../images/main-background.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 40%;
+    background-attachment: fixed;
+}
+
+@media screen and (max-width: 700px) {
+
+    #navbar {
+        padding-bottom: 45%;
+    }
+}

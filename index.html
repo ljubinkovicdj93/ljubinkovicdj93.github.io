@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>My Website</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('#back-to-top').each(function() {
+                $(this).click(function() {
+                    $('html,body').animate({
+                        scrollTop: 0
+                    }, 'slow');
+                    return false;
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <!-- New -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blogs.html">Blog</a></li>
+            <li><a href="hire.html">Hire Me</a></li>
+            <li><a href="about.html">About</a></li>
+            <div class="logo-container">
+                <a href="https://www.facebook.com/ljubinkovicd" target="_blank"><img src="images/facebook.svg" alt="facebook icon"></a>
+                <a href="https://github.com/ljubinkovicd" target="_blank"><img src="images/github-octocat.svg" alt="github icon"></a>
+                <a href="https://www.linkedin.com/in/ljubinkovicd/" target="_blank"><img src="images/linkedin.svg" alt="linkedin icon"></a>
+                <a href="https://twitter.com/ljubinkovicd93" target="_blank"><img src="images/twitter.svg" alt="twitter icon"></a>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="pimg1">
+        <div class="ptext">
+            <span class="border">
+                <p class="animated zoomInDown">Dorde Ljubinkovic</p>
+            </span>
+        </div>
+    </div>
+
+    <section class="section section-light">
+
+        <span class="section-title">Who Am I?</span>
+
+        <div class="who-am-i-container">
+            <a href="about.html" target="_blank"><img src="images/ja.jpg" alt="my profile picture"></a>
+            <h1>Dorde Ljubinkovic</h1>
+        </div>
+
+        <div class="section-description-container">
+            <p>My name is <strong>Dorde Ljubinkovic</strong>, I am a mobile developer doing both Android and iOS programming.</p>
+            <p>I've started dabbling with mobile development about 2 years ago, and immediately fell in love with it. Currently, I'm working on publishing two apps, one for Android and one for iOS.</p>
+            <p>I'm doing this both professionaly and as a hoby. If you would like me to help you in building applications for mobile devices, please don't hesitate to</p>
+            <br />
+            <a class="email-button-on-light" href="mailto:ljubinkovic.dorde@gmail.com">Email me</a>
+        </div>
+    </section>
+
+    <a href="hire.html">
+        <div class="pimg2">
+            <div class="ptext">
+                <span class="border trans">
+                My Skills
+            </span>
+            </div>
+        </div>
+    </a>
+
+    <section class="section section-dark">
+        <span class="section-title">What Can I Do For You?</span>
+
+        <div class="section-description-container">
+            <p>Mobile development is my specialty. I've been doing this for almost 2 years, and I don't plan on stopping! I've developed on both platforms, Android and iOS. Currently, I've been more engaged on the iOS side, but that doesn't mean I neglected
+                the Android side! As a matter of fact, I spend most of my free time developing smaller apps, going over tutorials, reading books about the subject, basically learning as much as possible so that I can reference all of that when building
+                my own apps.</p>
+            <p>So what can I do for you? If you have a clear vision of what kind of an app it is that you want, I'm here to help you realize that vision!</p>
+            <br />
+            <a class="email-button-on-dark" href="mailto:ljubinkovic.dorde@gmail.com">Email me</a>
+        </div>
+    </section>
+
+    <a href="projects.html">
+        <div class="pimg3">
+            <div class="ptext">
+                <span class="border trans">
+                    Portfolio
+                </span>
+            </div>
+        </div>
+    </a>
+
+    <section class="section section-light">
+        <span class="section-title">My Projects</span>
+        <div class="section-description-container">
+            <div>
+                <h2>Lingo-Chat</h2>
+                <p>This is a chat-app which uses Firebase to store user data, and messages between users. One cool feature of this app is that it will translate messages on the fly.</p>
+                <br />
+                <a class="email-button-on-light" href="#">Learn more...</a>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div>
+                <h2>KWoWledge</h2>
+                <p>This is a an app made for people who like World of Warcraft Lore, including myself. This app uses RxJava to fetch data asynchronously using Battle.net API. Also, OAuth 2.0 is implemented for secure user login into their Battle.net account.</p>
+                <br />
+                <a class="email-button-on-light" href="#">Learn more...</a>
+            </div>
+        </div>
+    </section>
+
+    <a href="blogs.html">
+        <div class="pimg4">
+            <div class="ptext">
+                <span class="border trans">
+                    My Blogs
+                </span>
+            </div>
+        </div>
+    </a>
+
+    <section class="section section-dark">
+        <div class="blog-list">
+            <span class="section-title">Recent Blogs</span>
+            <div class="blog-post-preview">
+                <a href="#">
+                    <h2 class="blog-post-title">Man must explore, and this is exploration at its greatest</h2>
+                    <h3 class="blog-post-description">Problems look mighty small from 150 miles up</h3>
+                </a>
+                <p class="blog-post-meta">Posted by <strong>Dorde Ljubinkovic</strong> on <span class="blog-post-date">22 September 2017</span></p>
+            </div>
+            <hr>
+            <div class="blog-post-preview">
+                <a href="#">
+                    <h2 class="blog-post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2>
+                    <h3 class="blog-post-description"></h3>
+                </a>
+                <p class="blog-post-meta">Posted by <strong>Dorde Ljubinkovic</strong> on <span class="blog-post-date">22 September 2017</span></p>
+            </div>
+            <hr>
+            <div class="blog-post-preview">
+                <a href="#">
+                    <h2 class="blog-post-title">Blog Post Main Title</h2>
+                    <h3 class="blog-post-description">Blog Post Description</h3>
+                </a>
+                <p class="blog-post-meta">Posted by <strong>Dorde Ljubinkovic</strong> on <span class="blog-post-date">22 September 2017</span></p>
+            </div>
+            <hr>
+        </div>
+    </section>
+
+    <div class="pimg1">
+        <div class="ptext">
+            <a href="#"><img id="back-to-top" src="images/up.png" alt="go back up button"></a>
+        </div>
+    </div>
+
+    <footer class="animated fadeInDownBig" id="footer">
+        <span id="signature">Dorde Ljubinkovic</span>
+    </footer>
+
+</body>
+
+</html>

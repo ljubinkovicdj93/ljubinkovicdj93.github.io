@@ -1,0 +1,21 @@
+.blog-test-showcase {
+    position: relative;
+    opacity: 0.80;
+    background-image: url('../images/portfolio.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 40%;
+}
+
+.blog-test-showcase > .ptext > .border > p {
+    color: yellow;
+}
+
+@media screen and (max-width: 700px) {
+
+    #navbar {
+        padding-bottom: 45%;
+    }
+}

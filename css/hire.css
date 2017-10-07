@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #282e34;
+    /*color: #f4f4f4;*/
+    line-height: 1.6;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.hire-me-showcase {
+    position: relative;
+    background-image: url('../images/main-background.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 40%;
+    background-attachment: fixed;
+}
+
+.hire-me-form-container {
+    background: #282e34;
+    color: #f4f4f4;
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.wrapper {
+    border-radius: 30px;
+    margin-top: 30px;
+    box-shadow: 0 0 30px 0 #7ec0ee;
+}
+
+.wrapper > * {
+    padding: 1em;
+}
+
+.my-info {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background: #7ec0ee;
+    color: #282e34;
+}
+
+.my-info a {
+    color: #00579e;
+    text-decoration: underline;
+}
+
+.my-info a:hover {
+    color: #f4f4f4;
+}
+
+.my-info h3, .my-info ul {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+.contact {
+    background: #f4f4f4;
+    color: #282e34;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+/* FORM STYLES */
+.contact form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.contact form label {
+    display: block;
+}
+
+.contact form p {
+    margin: 0;
+}
+
+.contact form .full {
+    grid-column: 1 / 3;
+}
+
+.contact form button, .contact form input, .contact form textarea {
+    width: 100%;
+    padding: 1em;
+    border-radius: 20px;
+    border: 1px solid #7ec0ee;
+}
+
+.contact form button {
+    background: #7ec0ee;
+    color: #f4f4f4;
+    font-size: 2vh;
+    border-radius: 20px;
+    border-color: #7ec0ee;
+    width: 100%;
+    border: 0;
+    text-transform: uppercase;
+    letter-spacing: 1vw;
+}
+
+.contact form button:hover, .contact form button:focus {
+    background: #282e34;
+    color: #f4f4f4;
+    outline: 0;
+    transition: background-color 1s ease-out;
+}
+
+.hire-me-showcase > .ptext > .border {
+    color: #282e34;
+    opacity: 0.8;
+}
+
+/* SMALL SCREENS */
+@media screen and (max-width: 700px) {
+
+    #navbar {
+        padding-bottom: 45%;
+    }
+
+    .wrapper {
+        margin-top: 8vh;
+    }
+
+    .wrapper > * {
+        padding: 0.5em;
+    }
+}
+
+/* LARGE SCREENS */
+@media (min-width: 700px) {
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        /*margin-top: 10%;*/
+    }
+
+    .wrapper > * {
+        padding: 1.5em;
+    }
+
+    .contact {
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: 0;
+    }
+
+    .my-info {
+        padding-top: 30%;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 0;
+    }
+}

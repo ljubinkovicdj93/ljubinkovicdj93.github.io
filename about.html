@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>My Website</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('#back-to-top').each(function() {
+                $(this).click(function() {
+                    $('html,body').animate({
+                        scrollTop: 0
+                    }, 'slow');
+                    return false;
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <!-- New -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blogs.html">Blog</a></li>
+            <li><a href="hire.html">Hire Me</a></li>
+            <li><a class="active" href="#">About</a></li>
+            <div class="logo-container">
+                <a href="https://www.facebook.com/ljubinkovicd" target="_blank"><img src="images/facebook.svg" alt="facebook icon"></a>
+                <a href="https://github.com/ljubinkovicd" target="_blank"><img src="images/github-octocat.svg" alt="github icon"></a>
+                <a href="https://www.linkedin.com/in/ljubinkovicd/" target="_blank"><img src="images/linkedin.svg" alt="linkedin icon"></a>
+                <a href="https://twitter.com/ljubinkovicd93" target="_blank"><img src="images/twitter.svg" alt="twitter icon"></a>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="about-showcase">
+        <div class="ptext">
+            <span class="border">
+                <p class="animated lightSpeedIn">(1)Bit(0) more about me...</p>
+            </span>
+        </div>
+    </div>
+
+    <section class="section section-light">
+        <span class="section-title">Who Am I?</span>
+        <p>I am a mobile developer with 1+ year(s) of experience on both iOS & Android platforms. I am looking to make a career out of it. For me, this is a very exciting field to be in because as the technology advances, many opportunities
+            arise for this field. In particular, I decided to go into the world of mobile development because I realized that these devices are ubiquitous, becoming more and more powerful each day. Today, whatever we can do on a computer, we can probably
+            do on a mobile device. This is what I am looking forward to, since now, we are able to integrate many exciting technologies into our mobile devices, for example: machine and deep learning with mobile apps.
+            <br />
+            <br />
+            I've mostly
+            been working on developing apps for both iOS & Android. I have developed a couple of apps while working for Rauland, a Division of AMETEK, Inc. company. With a team of 3 more people, we've developed an Android app, which can be used by patients
+            inside hospitals, and nursing facilities to communicate with their caregiver. We've used different technologies for this app. For the back-end we have used Spring Framework, MSSQL for storing our data, while for the front-end we used Android
+            (Java). Of the libraries for Android, we've used GSON to serialize/deserialize JSON data, Retrofit, OkHttp to send requests and get responses from our server. - Another app on which I have been working on, also for Rauland, is an app for hospital
+            staff, which can be used to receive calls sent by patients from the patient app. I've used Xamarin (C#) to develop a cross-platform app, available for both iOS & Android at the same time. - Currently, I'm working on an iOS app which communicates
+            via SIP to our server. I've been using PortSIP VoIP SDK in order to register to the SIP server and make/receive audio/video calls.
+            <br />
+            <br />
+            Side Projects *Some of the side projects I did while in school:* - Vending Machine project, which simulates
+            a vending machine, written in JavaScript. Further description is found under this link: [Vending Machine Simulator][1] - A simple simulation of Yahtzee game, written in Java. This is the link to the project: [Yahtzee Game][2] - Connect 4
+            project, written in C#, with a small twist. Instead of connecting 4 pieces in a row, connect pieces together in an 'L' shape. AI opponent implemented to make things interesting. Here is the link for the project: [Connect L][3] - TheBuddies
+            Group Project. This was a final school project done by myself and 3 of my fellow students, where we had to create a program for a real client. This program was written in Visual Basic, with MSSQL for the back-end. In short, this is a scheduling
+            program, made to make scheduling and organizing classes within the university much easier. Here is the link to the project: [TheBuddies Class Scheduling Project][4]
+            <br />
+            <br />
+            *Some of the side projects I've done in my spare time:* - Android Quote
+            Generator project, written in Java, is a simple quote generator app. I've used [Mashape][5] to utilize their quote-generating API, through REST communication. Here is the link to the project: [Quote Generator][6] - Android Currency Converter
+            project, written in Java, is a simple currency converter app. I've used [Mashape][7] to utilize their currency converter API, through REST communication. Here is the link to the project: [Currency Converter][8]
+            <br />
+            <br />
+            *I am currently working on
+            these projects in my spare time:* - KWoWledge, which is an Android project, written in Kotlin. I'm making a fun, informative app which utilizes [Battle.net API][9] to provide a lot of interesting information about World of Warcraft game,
+            such as: boss information, spell information, even information about player's character inside the actual game, etc... I'm also utilizing RxJava inside of this project, to familiarize myself with Reactive programming. *This project is still
+            in its development phase, so it's not completed yet.* Here is the link to the project: [kWoWledge][10] - Lingo Chat, is an iOS project, written in Swift. I'm making a chat app, using Firebase for the back-end. Having a great passion for
+            language learning, I've used many chat apps to text people who speak a different language than myself, and most of the times, this can become very difficult if both people don't speak another common (helper) language that can help them understand
+            each other easier. Then I've thought, why not utilize some of the amazing technologies that we have today. For example, IBM Watson has a great translation API which can translate text on the fly, it can translate text as you speak, etc...
+            Yandex has an amazing API that supports almost every language in the world, not to mention Google. I've thought about it, and decided to implement these services into an app used mainly for communication. I believe that this is a wonderful
+            idea because it will help many people overcome some of the difficulties when learning a new language, and hopefully motivate them to keep learning it! This is why I love mobile development, and technology in general, because I can make something
+            that will help someone else in this world, who I've never met, and will probably never meet, achieve their goal. *This project is still in its development phase, so it's not completed yet.* Here is the link to the project: [Lingo Chat][11]
+            - My Personal Website. I am working on building my own site, where I will have some interesting, some not so interesting information about me, and which I will use to write my own blogs about the stuff that interests me. I've just recently
+            started this, so it is in the beginning phases of development, reason being that I just started learning about Reactjs, which I plan to use to create the UI for my website. *This project is still in its development phase, so it's not completed
+            yet.* Here is the link to the project: [My Personal Website][12]
+            <br />
+            <br />
+            I’m interested in I am constantly improving my skills in iOS & Android, as these are currently the two things I am most interested in. Other than programming, I'm also interested
+            in language learning (currently learning German), and jammin' my guitar (not that good :(, but I keep trying! )</p>
+    </section>
+
+    <div class="pimg1">
+        <div class="ptext">
+            <a href="#"><img id="back-to-top" src="images/up.png" alt="go back up button"></a>
+        </div>
+    </div>
+
+    <footer class="animated fadeInDownBig" id="footer">
+        <span id="signature">Dorde Ljubinkovic</span>
+    </footer>
+
+</body>
+
+</html>
