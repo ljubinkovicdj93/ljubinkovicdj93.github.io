@@ -61,10 +61,40 @@
     max-height: 272px;
 }*/
 
+.project-img-container > a > img {
+  width: 65%;
+  height: auto;
+}
+
 .section-dark img, .section-light img {
-    border-radius: 75px;
+    border-radius: 15px;
     width: 100%;
     height: auto;
+}
+
+.section-light > .project-info-container > .project-post-meta > a {
+  color: #282e34;
+}
+
+.section-light > .project-info-container > .project-post-meta > a:hover {
+  color: #7ec0ee;
+}
+
+.project-post-meta {
+  text-align: left;
+}
+
+.project-post-date {
+  font-size: 10px;
+  padding-right: 35px;
+}
+
+.project-post-meta-extra {
+  text-align: right;
+}
+
+.strong {
+  color: #f4f4f4;
 }
 
 @media (max-width:700px) {
