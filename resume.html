@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-        <title>Contact</title>
+        <title>Resume/CV</title>
 
         <link
             href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -27,8 +27,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <!-- <li><a href="blogs.html">Blog</a></li> -->
-                <li><a class="active" href="#">Contact</a></li>
-                <li><a href="resume.html">Resume/CV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a class="active" href="#">Resume/CV</a></li>
                 <div class="logo-container">
                     <a href="https://github.com/ljubinkovicdj93" target="_blank"
                         ><img src="images/github-octocat.svg" alt="github icon"
@@ -48,53 +48,19 @@
         <div class="about-showcase">
             <div class="ptext">
                 <span class="border">
-                    <p class="animated lightSpeedIn">Contact Me!</p>
+                    <p class="animated lightSpeedIn">Resume/CV</p>
                 </span>
             </div>
         </div>
 
         <div class="equal-height-container">
-            <div class="first">
-                <div class="info-container">
-                    <h3>Djordje Ljubinkovic</h3>
-                    <ul style="list-style-type: none;">
-                        <li>
-                            <i class="fa fa-road"></i> Belgrade, Serbia, 11000
-                        </li>
-                        <li><i class="fa fa-phone"></i> +381-63-283-101</li>
-                        <li>
-                            <i class="fa fa-envelope"></i>
-                            <a
-                                class="email-me-button"
-                                href="mailto:ljubinkovicdj93@gmail.com"
-                                >Email Me!</a
-                            >
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="second">
-                <div id="map"></div>
-            </div>
+            <object width="100%" height="490" type="application/pdf" data="documents/resume.pdf?#zoom=85&scrollbar=0&toolbar=0&navpanes=0">
+                <p>Unable to display the resume :(</p>
+            </object>
         </div>
 
         <footer class="animated fadeInDownBig" id="footer">
             <span id="signature">Djordje Ljubinkovic</span>
         </footer>
-
-        <script>
-            function myMap() {
-                var mapOptions = {
-                    center: new google.maps.LatLng(44.7866, 20.4489),
-                    zoom: 10,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-                var map = new google.maps.Map(
-                    document.getElementById("map"),
-                    mapOptions
-                );
-            }
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVaLdI7o2Kq7UXZvYvgFRgscWC_fzIY-Q&callback=myMap"></script>
     </body>
 </html>
