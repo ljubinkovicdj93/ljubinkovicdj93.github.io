@@ -3,14 +3,14 @@ body {
 }
 
 .about-showcase {
-    position: relative;
-    opacity: 0.80;
-    background-image: url('../images/main-background.jpeg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 40%;
-    background-attachment: fixed;
+  position: relative;
+  opacity: 0.8;
+  background-image: url('../images/main-background.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 40%;
+  background-attachment: fixed;
 }
 
 .equal-height-container {
@@ -56,10 +56,19 @@ body {
   font-size: 15px;
 }
 
-.email-me-button:hover, .email-me-button:focus {
+.email-me-button:hover,
+.email-me-button:focus {
   background: #7ec0ee;
   color: #f4f4f4;
   transition: background-color 1s ease-out;
+}
+
+.phone-number {
+  color: black;
+}
+
+.phone-number:hover {
+  color: white;
 }
 
 #map {
@@ -76,9 +85,8 @@ body {
 }
 
 @media all and (max-width: 700px) {
-
   #navbar {
-      padding-bottom: 45%;
+    padding-bottom: 45%;
   }
 
   .equal-height-container {
