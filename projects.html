@@ -1,294 +1,296 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-        <title>Projects</title>
+    <title>Projects</title>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/projects.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/projects.css" />
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#back-to-top").each(function () {
-                    $(this).click(function () {
-                        $("html,body").animate(
-                            {
-                                scrollTop: 0
-                            },
-                            "slow"
-                        );
-                        return false;
-                    });
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#back-to-top").each(function () {
+                $(this).click(function () {
+                    $("html,body").animate(
+                        {
+                            scrollTop: 0
+                        },
+                        "slow"
+                    );
+                    return false;
                 });
             });
-        </script>
-    </head>
+        });
+    </script>
+</head>
 
-    <body>
-        <!-- New -->
-        <nav id="navbar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a class="active" href="#">Projects</a></li>
-                <!-- <li><a href="blogs.html">Blog</a></li> -->
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="resume.html">Resume/CV</a></li>
-                <div class="logo-container">
-                    <a href="https://github.com/ljubinkovicdj93" target="_blank"><img src="images/github-octocat.svg"
-                            alt="github icon" /></a>
-                    <a href="https://www.linkedin.com/in/ljubinkovicd/" target="_blank"><img src="images/linkedin.svg"
-                            alt="linkedin icon" /></a>
-                    <a href="https://twitter.com/ljubinkovicd93" target="_blank"><img src="images/twitter.svg"
-                            alt="twitter icon" /></a>
-                </div>
-            </ul>
-        </nav>
-
-        <div class="projects-showcase">
-            <div class="ptext">
-                <span class="border">
-                    <p class="animated lightSpeedIn">My Projects</p>
-                </span>
+<body>
+    <!-- New -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="#">Projects</a></li>
+            <!-- <li><a href="blogs.html">Blog</a></li> -->
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="resume.html">Resume/CV</a></li>
+            <div class="logo-container">
+                <a href="https://github.com/ljubinkovicdj93" target="_blank"><img src="images/github-octocat.svg"
+                        alt="github icon" /></a>
+                <a href="https://www.linkedin.com/in/ljubinkovicd/" target="_blank"><img src="images/linkedin.svg"
+                        alt="linkedin icon" /></a>
+                <a href="https://twitter.com/ljubinkovicd93" target="_blank"><img src="images/twitter.svg"
+                        alt="twitter icon" /></a>
             </div>
+        </ul>
+    </nav>
+
+    <div class="projects-showcase">
+        <div class="ptext">
+            <span class="border">
+                <p class="animated lightSpeedIn">My Projects</p>
+            </span>
         </div>
+    </div>
 
-        <div class="project-list">
-            <section id="cmev-app" class="section section-dark">
-                <div class="project-img-container">
-                    <a href="https://apps.apple.com/be/app/charge-my-ev/id1164069182" target="_blank"><img
-                            src="images/project_screenshots/bosch/cmev.png" alt="CMEV App Screenshot"
-                            style="border: 5px solid #555;" /></a>
-                    <h2>Charge My EV</h2>
-                </div>
-
-                <div class="project-info-container">
-                    <h2 class="project-title">
-                        CMEV - Charge My EV
-                    </h2>
-                    <h3 class="project-description">
-                        <a href="https://www.bosch-mobility.com/en/solutions/charging/charge-my-ev/" target="_blank">CMEV</a>
-                    </h3>
-                    <p class="project-post-meta">
-                        "Charge My EV" makes it easy to find charge points, charge electricity and pay with just one account at more than 260 000 charge points in 29 countries.
-                        Developed completely in SwiftUI along with the SDK that powers it (and other whitelabel apps).
-                    </p>
-
-                    <br />
-
-                    <p class="project-post-meta">
-                        If you would like to find out more about it, feel free
-                        to
-                        <a href="mailto:ljubinkovicdj93@gmail.com"><span
-                                style="text-decoration: underline">e-mail</span></a>
-                        me:
-                    </p>
-
-                    <br />
-
-                    <p class="project-post-meta-extra">
-                        Posted by <strong><u>Djordje Ljubinkovic</u></strong> on
-                        <span class="project-post-date">25 October, 2024</span>
-                    </p>
-                </div>
-            </section>
-            
-            <section id="tappmy-app" class="section section-light">
-                <div class="project-img-container">
-                    <a href="https://apps.apple.com/my/app/tappmy/id1503640821" target="_blank"><img
-                            src="images/project_screenshots/tapp/tapp.png" alt="Tapp App Screenshot"
-                            style="border: 5px solid #555;" /></a>
-                    <h2>Tapp</h2>
-                </div>
-
-                <div class="project-info-container">
-                    <h2 class="project-title">
-                        tappMY
-                    </h2>
-                    <h3 class="project-description">
-                        <a href="https://www.tapp.my/" target="_blank">Tapp</a>
-                    </h3>
-                    <p class="project-post-meta">
-                        Tapp is a customer care application for a Malaysian operator Digi.
-                        The app utilizes the Clean Swift architecture.
-                        I was the only developer on this project, and I've built the app completely from scratch.
-                        This app has interesting features, such as OCR which can scan a specific Tapp voucher used to
-                        top up user's balance, and it can also scan a Malaysian ID card to get the user's details needed
-                        for registration.
-                    </p>
-
-                    <br />
-
-                    <p class="project-post-meta">
-                        If you would like to find out more about it, feel free
-                        to
-                        <a href="mailto:ljubinkovicdj93@gmail.com"><span
-                                style="text-decoration: underline">e-mail</span></a>
-                        me:
-                    </p>
-
-                    <br />
-
-                    <p class="project-post-meta-extra">
-                        Posted by <strong><u>Djordje Ljubinkovic</u></strong> on
-                        <span class="project-post-date">13 September, 2020</span>
-                    </p>
-                </div>
-            </section>
-
-            <section id="aura-home-app" class="section section-dark">
-                <div class="project-img-container">
-                    <a href="https://apps.apple.com/de/app/id1163322795" target="_blank"><img
-                            src="images/project_screenshots/aura_home/screen.png" alt="Aura Home App Screenshot" /></a>
-                    <h3>Aura Home: made for iOS</h3>
-                </div>
-
-                <div class="project-info-container">
-                    <h2 class="project-title">
-                        Aura Home
-                    </h2>
-                    <h3 class="project-description">
-                        <a href="https://www.cognitivesystems.com/" target="_blank">Cognitive Systems Corp</a>
-                    </h3>
-                    <p class="project-post-meta">
-                        I've contributed to the development of Aura Home app,
-                        which uses wireless radio frequency (RF) signals to
-                        detect motion inside the home environment, allowing
-                        subscribed users to receive real-time motion event push
-                        notifications. This app also monitors the user’s
-                        location. Specifically, it monitors a particular area
-                        defined by the user i.e., their home address, and
-                        notifies them once they enter or leave that area. I've
-                        worked on implementing in-app-purchases, geofence, and
-                        push notifications.
-                    </p>
-
-                    <br />
-
-                    <p class="project-post-meta">
-                        If you would like to find out more about it, feel free
-                        to
-                        <a href="mailto:ljubinkovicdj93@gmail.com"><span
-                                style="text-decoration: underline">e-mail</span></a>
-                        me:
-                    </p>
-
-                    <br />
-
-                    <p class="project-post-meta-extra">
-                        Posted by <strong><u>Djordje Ljubinkovic</u></strong> on
-                        <span class="project-post-date">11 July, 2019</span>
-                    </p>
-                </div>
-            </section>
-
-            <section id="wpw-app" class="section section-light">
-                <div class="project-img-container">
-                    <a href="https://apps.apple.com/us/app/what-pros-wear/id1163195374" target="_blank"><img
-                            src="images/project_screenshots/wpw/screen.png" alt="What Pros Wear App Screenshot" /></a>
-                    <h2>What Pros Wear: made for iOS</h2>
-                </div>
-
-                <div class="project-info-container">
-                    <h2 class="project-title">
-                        WPW
-                    </h2>
-                    <h3 class="project-description">
-                        <a href="https://www.whatproswear.com/" target="_blank">What Pros Wear, Inc.</a>
-                    </h3>
-                    <p class="project-post-meta">
-                        As its name suggests, this app lets you easily discover
-                        what gear belongs to which professional baseball player.
-                        Not only that, but the user is also able to order these
-                        items. Each gear piece has detailed info, including
-                        links to buy the gear. There are a lot of options
-                        provided to the user, such as: keeping the favorite gear
-                        in one place, filtering by various criteria, thus very
-                        easy to browse/shop, commenting, tagging, sharing,
-                        liking, etc... You can think of this app as
-                        <q>Pinterest for baseball players</q>.
-                    </p>
-
-                    <br />
-
-                    <p class="project-post-meta">
-                        If you would like to find out more about it, feel free
-                        to
-                        <a href="mailto:ljubinkovicdj93@gmail.com"><span
-                                style="text-decoration: underline">e-mail</span></a>
-                        me:
-                    </p>
-
-                    <br />
-
-                    <p class="project-post-meta-extra">
-                        Posted by <strong><u>Djordje Ljubinkovic</u></strong> on
-                        <span class="project-post-date">11 July, 2019</span>
-                    </p>
-                </div>
-            </section>
-
-            <section id="cadence-app" class="section section-dark">
-                <div class="project-img-container">
-                    <a href="https://cadence-digital.myshopify.com/" target="_blank"><img
-                            src="images/project_screenshots/cadence/screen.png" alt="Cadence App Screenshot" /></a>
-                    <h2>Cadence: made with React Native</h2>
-                </div>
-
-                <div class="project-info-container">
-                    <h2 class="project-title">Cadence Health</h2>
-                    <h3 class="project-description">
-                        Smart Birth Control System
-                    </h3>
-                    <p class="project-post-meta">
-                        I've helped develop an app for birth control pills,
-                        which uses custom-made hardware, called Cadence case, by
-                        implementing the BLE communication functionality into
-                        it. This app communicates with the Cadence case in order
-                        to keep track of when the user has: opened the case,
-                        taken the pill, closed the case, etc. By using data
-                        received from the hardware, the app does various
-                        calculations to determine whether the user is taking the
-                        pills properly or is at risk of getting pregnant. If the
-                        latter is true, the app suggests starting a new pack at
-                        a different time, and so on. User’s data history is
-                        stored both online and offline by using Firestore.
-                    </p>
-
-                    <br />
-
-                    <p class="project-post-meta">
-                        If you would like to find out more about it, feel free
-                        to
-                        <a href="mailto:ljubinkovicdj93@gmail.com"><span
-                                style="text-decoration: underline">e-mail</span></a>
-                        me:
-                    </p>
-
-                    <br />
-
-                    <p class="project-post-meta-extra">
-                        Posted by <strong><u>Djordje Ljubinkovic</u></strong> on
-                        <span class="project-post-date">11 July, 2019</span>
-                    </p>
-                </div>
-            </section>
-        </div>
-
-        <div class="pimg1">
-            <div class="ptext">
-                <a href="#"><img id="back-to-top" src="images/up.png" alt="go back up button" /></a>
+    <div class="project-list">
+        <section id="cmev-app" class="section section-dark">
+            <div class="project-img-container">
+                <a href="https://apps.apple.com/dk/app/charge-my-ev/id1164069182" target="_blank"><img
+                        src="images/project_screenshots/bosch/cmev.png" alt="CMEV App Screenshot"
+                        style="border: 5px solid #555;" /></a>
+                <h2>Charge My EV</h2>
             </div>
-        </div>
 
-        <footer class="animated fadeInDownBig" id="footer">
-            <span id="signature">Djordje Ljubinkovic</span>
-        </footer>
-    </body>
+            <div class="project-info-container">
+                <h2 class="project-title">
+                    CMEV - Charge My EV
+                </h2>
+                <h3 class="project-description">
+                    <a href="https://www.bosch-mobility.com/en/solutions/charging/charge-my-ev/"
+                        target="_blank">CMEV</a>
+                </h3>
+                <p class="project-post-meta">
+                    "Charge My EV" makes it easy to find charge points, charge electricity and pay with just one account
+                    at more than 260 000 charge points in 29 countries.
+                    Developed completely in SwiftUI along with the SDK that powers it (and other whitelabel apps).
+                </p>
+
+                <br />
+
+                <p class="project-post-meta">
+                    If you would like to find out more about it, feel free
+                    to
+                    <a href="mailto:ljubinkovicdj93@gmail.com"><span
+                            style="text-decoration: underline">e-mail</span></a>
+                    me:
+                </p>
+
+                <br />
+
+                <p class="project-post-meta-extra">
+                    Posted by <strong><u>Djordje Ljubinkovic</u></strong> on
+                    <span class="project-post-date">25 October, 2024</span>
+                </p>
+            </div>
+        </section>
+
+        <section id="tappmy-app" class="section section-light">
+            <div class="project-img-container">
+                <a href="https://apps.apple.com/my/app/tappmy/id1503640821" target="_blank"><img
+                        src="images/project_screenshots/tapp/tapp.png" alt="Tapp App Screenshot"
+                        style="border: 5px solid #555;" /></a>
+                <h2>Tapp</h2>
+            </div>
+
+            <div class="project-info-container">
+                <h2 class="project-title">
+                    tappMY
+                </h2>
+                <h3 class="project-description">
+                    <a href="https://www.tapp.my/" target="_blank">Tapp</a>
+                </h3>
+                <p class="project-post-meta">
+                    Tapp is a customer care application for a Malaysian operator Digi.
+                    The app utilizes the Clean Swift architecture.
+                    I was the only developer on this project, and I've built the app completely from scratch.
+                    This app has interesting features, such as OCR which can scan a specific Tapp voucher used to
+                    top up user's balance, and it can also scan a Malaysian ID card to get the user's details needed
+                    for registration.
+                </p>
+
+                <br />
+
+                <p class="project-post-meta">
+                    If you would like to find out more about it, feel free
+                    to
+                    <a href="mailto:ljubinkovicdj93@gmail.com"><span
+                            style="text-decoration: underline">e-mail</span></a>
+                    me:
+                </p>
+
+                <br />
+
+                <p class="project-post-meta-extra">
+                    Posted by <strong><u>Djordje Ljubinkovic</u></strong> on
+                    <span class="project-post-date">13 September, 2020</span>
+                </p>
+            </div>
+        </section>
+
+        <section id="aura-home-app" class="section section-dark">
+            <div class="project-img-container">
+                <a href="https://apps.apple.com/de/app/id1163322795" target="_blank"><img
+                        src="images/project_screenshots/aura_home/screen.png" alt="Aura Home App Screenshot" /></a>
+                <h3>Aura Home: made for iOS</h3>
+            </div>
+
+            <div class="project-info-container">
+                <h2 class="project-title">
+                    Aura Home
+                </h2>
+                <h3 class="project-description">
+                    <a href="https://www.cognitivesystems.com/" target="_blank">Cognitive Systems Corp</a>
+                </h3>
+                <p class="project-post-meta">
+                    I've contributed to the development of Aura Home app,
+                    which uses wireless radio frequency (RF) signals to
+                    detect motion inside the home environment, allowing
+                    subscribed users to receive real-time motion event push
+                    notifications. This app also monitors the user’s
+                    location. Specifically, it monitors a particular area
+                    defined by the user i.e., their home address, and
+                    notifies them once they enter or leave that area. I've
+                    worked on implementing in-app-purchases, geofence, and
+                    push notifications.
+                </p>
+
+                <br />
+
+                <p class="project-post-meta">
+                    If you would like to find out more about it, feel free
+                    to
+                    <a href="mailto:ljubinkovicdj93@gmail.com"><span
+                            style="text-decoration: underline">e-mail</span></a>
+                    me:
+                </p>
+
+                <br />
+
+                <p class="project-post-meta-extra">
+                    Posted by <strong><u>Djordje Ljubinkovic</u></strong> on
+                    <span class="project-post-date">11 July, 2019</span>
+                </p>
+            </div>
+        </section>
+
+        <section id="wpw-app" class="section section-light">
+            <div class="project-img-container">
+                <a href="https://apps.apple.com/us/app/what-pros-wear/id1163195374" target="_blank"><img
+                        src="images/project_screenshots/wpw/screen.png" alt="What Pros Wear App Screenshot" /></a>
+                <h2>What Pros Wear: made for iOS</h2>
+            </div>
+
+            <div class="project-info-container">
+                <h2 class="project-title">
+                    WPW
+                </h2>
+                <h3 class="project-description">
+                    <a href="https://www.whatproswear.com/" target="_blank">What Pros Wear, Inc.</a>
+                </h3>
+                <p class="project-post-meta">
+                    As its name suggests, this app lets you easily discover
+                    what gear belongs to which professional baseball player.
+                    Not only that, but the user is also able to order these
+                    items. Each gear piece has detailed info, including
+                    links to buy the gear. There are a lot of options
+                    provided to the user, such as: keeping the favorite gear
+                    in one place, filtering by various criteria, thus very
+                    easy to browse/shop, commenting, tagging, sharing,
+                    liking, etc... You can think of this app as
+                    <q>Pinterest for baseball players</q>.
+                </p>
+
+                <br />
+
+                <p class="project-post-meta">
+                    If you would like to find out more about it, feel free
+                    to
+                    <a href="mailto:ljubinkovicdj93@gmail.com"><span
+                            style="text-decoration: underline">e-mail</span></a>
+                    me:
+                </p>
+
+                <br />
+
+                <p class="project-post-meta-extra">
+                    Posted by <strong><u>Djordje Ljubinkovic</u></strong> on
+                    <span class="project-post-date">11 July, 2019</span>
+                </p>
+            </div>
+        </section>
+
+        <section id="cadence-app" class="section section-dark">
+            <div class="project-img-container">
+                <a href="https://cadence-digital.myshopify.com/" target="_blank"><img
+                        src="images/project_screenshots/cadence/screen.png" alt="Cadence App Screenshot" /></a>
+                <h2>Cadence: made with React Native</h2>
+            </div>
+
+            <div class="project-info-container">
+                <h2 class="project-title">Cadence Health</h2>
+                <h3 class="project-description">
+                    Smart Birth Control System
+                </h3>
+                <p class="project-post-meta">
+                    I've helped develop an app for birth control pills,
+                    which uses custom-made hardware, called Cadence case, by
+                    implementing the BLE communication functionality into
+                    it. This app communicates with the Cadence case in order
+                    to keep track of when the user has: opened the case,
+                    taken the pill, closed the case, etc. By using data
+                    received from the hardware, the app does various
+                    calculations to determine whether the user is taking the
+                    pills properly or is at risk of getting pregnant. If the
+                    latter is true, the app suggests starting a new pack at
+                    a different time, and so on. User’s data history is
+                    stored both online and offline by using Firestore.
+                </p>
+
+                <br />
+
+                <p class="project-post-meta">
+                    If you would like to find out more about it, feel free
+                    to
+                    <a href="mailto:ljubinkovicdj93@gmail.com"><span
+                            style="text-decoration: underline">e-mail</span></a>
+                    me:
+                </p>
+
+                <br />
+
+                <p class="project-post-meta-extra">
+                    Posted by <strong><u>Djordje Ljubinkovic</u></strong> on
+                    <span class="project-post-date">11 July, 2019</span>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <div class="pimg1">
+        <div class="ptext">
+            <a href="#"><img id="back-to-top" src="images/up.png" alt="go back up button" /></a>
+        </div>
+    </div>
+
+    <footer class="animated fadeInDownBig" id="footer">
+        <span id="signature">Djordje Ljubinkovic</span>
+    </footer>
+</body>
 
 </html>
