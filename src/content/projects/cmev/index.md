@@ -6,7 +6,7 @@ demoURL: "https://apps.apple.com/dk/app/charge-my-ev/id1164069182"
 # repoURL: "https://github.com/markhorn-dev/astro-sphere"
 ---
 
-![Charge My Electric Vehicle](/cmev.png)
+![Charge My Electric Vehicle](/images/cmev.png)
 
 Charge My EV makes it easy to find charge points, charge electricity and pay with just one account at more than 260 000 charge points in 29 countries.
 
