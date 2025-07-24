@@ -1,10 +1,12 @@
 {
   "extends": "astro/tsconfigs/strict",
+
   "compilerOptions": {
-    "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@*": ["./src/*"]
+      "@layout/*": ["src/layout/*"],
+      "@components/*": ["src/components/*"],
+      "@images/*": ["public/images/*"]
     }
   }
 }

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <style>
+      .hobbii { font: bold 48px 'Arial Rounded MT Bold', 'Helvetica Rounded', sans-serif; fill: #E4007B; }
+    </style>
+  </defs>
+  <text x="0" y="48" class="hobbii">hobbii</text>
+</svg>

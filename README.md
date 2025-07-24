@@ -1,64 +1,69 @@
-![Astro Nano](_astro_nano.png)
+# super-solstice blog
 
-Astro Nano is a static, minimalist, lightweight, lightning fast portfolio and blog theme.
+Super solstice is a meticulously crafted theme for astro using Tailwind that is SEO friendly.
 
-Built with Astro, Tailwind and Typescript, an no frameworks.
+This theme follows best practices and provides accessibility out of the box. Light and dark mode are supported by default. Moreover, additional color schemes can also be configured.
 
-It was designed as an even more minimal theme than my popular theme [Astro Sphere](https://github.com/markhorn-dev/astro-sphere)
+https://super-solstice.vercel.app/
 
-## 🚀 Deploy your own
+# ❤️‍🔥 Features
 
-[![Deploy with Vercel](_deploy_vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/markhorn-dev/astro-nano)  [![Deploy with Netlify](_deploy_netlify.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markhorn-dev/astro-nano)
+- [x] super fast performance (top scores on ligthhouse)
+- [x] SEO friendly
+- [x] responsive
+- [x] accesible
+- [x] light and dark mode with customizable theme
+- [x] filters
+- [x] sitemap & rss feed
+- [x] customizable (edit variables in `Layout`)
 
-## 📋 Features
+# 🤖 Tech stack
 
-- ✅ 100/100 Lighthouse performance
-- ✅ Responsive
-- ✅ Accessible
-- ✅ SEO-friendly
-- ✅ Typesafe
-- ✅ Minimal style
-- ✅ Light/Dark Theme
-- ✅ Animated UI
-- ✅ Tailwind styling
-- ✅ Auto generated sitemap
-- ✅ Auto generated RSS Feed
-- ✅ Markdown support
-- ✅ MDX Support (components in your markdown)
+Main Framework - Astro
+Type Checking - TypeScript
+JS framework - Vanilla JS
+Styling - TailwindCSS
+Icons - Iconoir
+Code Formatting - Rustwind & Prettier (`pnpm format`)
+Deployment - Vercel
+Illustrations & Content - Midjourney & ChatGPT
 
-## 💯 Lighthouse score
-![Astro Nano Lighthouse Score](_lighthouse.png)
+# 🖥️ Running locally
 
-## 🕊️ Lightweight
-No frameworks or added bulk
+```sh
+pnpm install
+pnpm dev
+```
 
-## ⚡︎ Fast
-Rendered in ~40ms on localhost
+## Config for prod
 
-## 📄 Configuration
+For the sitemap to work, define your URL in `astro.config.mjs`
 
-The blog posts on the demo serve as the documentation and configuration.
+```js
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
-## 💻 Commands
+export default defineConfig({
+  // ...
+  site: "https://stargazers.club",
+  integrations: [sitemap()],
+});
+```
 
-All commands are run from the root of the project, from a terminal:
+# Adding blog posts
 
-Replace npm with your package manager of choice. `npm`, `pnpm`, `yarn`, `bun`, etc
+Add markdown files similar to the ones in [blog/\*.md](src/pages/blog/), they need to have the following format:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run dev:network`     | Starts local dev server on local network         |
-| `npm run sync`            | Generates TypeScript types for all Astro modules.|
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run preview:network` | Preview build on local network                   |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-| `npm run lint`            | Run ESLint                                       |
-| `npm run lint:fix`        | Auto-fix ESLint issues                           |
+```yaml
+---
+layout: ../../layout/MarkdownLayout.astro
+title: My markdown capabilities
+description: "This is everything I know about markdown"
+pubDate: 2022-07-15
+tags: ["astro", "learning in public", "setbacks", "community"]
+---
+```
 
-## 🏛️ License
+# Navigating this repo
 
-MIT
+I suggest going through [src/pages/](src/pages/) first then through [src/components/](src/components/), you can easily see where to make edits.

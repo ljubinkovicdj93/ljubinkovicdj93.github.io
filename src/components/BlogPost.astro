@@ -1,0 +1,76 @@
+---
+import HighlightedLink from "./HighlightedLink.astro";
+import Tag from "./Tag.astro";
+
+interface Props {
+  date: string;
+  readTime: string;
+  title: string;
+  description: string;
+  tags: string[];
+  url?: string;
+}
+
+const { date, readTime, title, description, tags, url } = Astro.props;
+---
+
+<script>
+  let copyButtonLabel = "Copy Code";
+  let codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+  for (let codeBlock of codeBlocks) {
+    let wrapper = document.createElement("div");
+    wrapper.style.position = "relative";
+
+    let copyButton = document.createElement("button");
+    copyButton.className = "copy-code";
+    copyButton.innerHTML = copyButtonLabel;
+
+    codeBlock.setAttribute("tabindex", "0");
+    codeBlock.appendChild(copyButton);
+    // wrap codebock with relative parent element
+    codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+    wrapper.appendChild(codeBlock);
+
+    copyButton.addEventListener("click", async () => {
+      await copyCode(codeBlock, copyButton);
+    });
+  }
+
+  async function copyCode(block, button) {
+    let code = block.querySelector("code");
+    let text = code.innerText;
+
+    await navigator.clipboard.writeText(text);
+
+    // visual feedback that task is completed
+    button.innerText = "Code Copied";
+
+    setTimeout(() => {
+      button.innerText = copyButtonLabel;
+    }, 700);
+  }
+</script>
+
+<div class="sm:pl-4 sm:border-l sm:border-primary-700" data-tags={tags}>
+  <article class="overflow-hidden divide-none">
+    <div class="flex flex-col gap-2 py-2 sm:px-6">
+      <h3 class="text-xl font-semibold tracking-tight">{title}</h3>
+      <div class="flex flex-row gap-2 justify-start text-sm text-primary-400">
+        <time>{date}&nbsp;•</time>
+        <span>{readTime}</span>
+      </div>
+    </div>
+
+    <div class="py-2 text-base sm:px-6 max-w-[65ch]">
+      {description}
+    </div>
+
+    <div class="flex flex-col gap-8 py-2 sm:px-6">
+      <ul class="flex flex-row flex-wrap gap-2">
+        {tags.map((tag) => <Tag>{tag}</Tag>)}
+      </ul>
+      <HighlightedLink href={url}>Read more ›</HighlightedLink>
+    </div>
+  </article>
+</div>
