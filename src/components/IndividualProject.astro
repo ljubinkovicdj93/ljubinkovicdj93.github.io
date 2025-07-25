@@ -1,0 +1,112 @@
+---
+import HighlightedLink from "./HighlightedLink.astro";
+import Tag from "./Tag.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  url?: string;
+  githubUrl?: string;
+  liveUrl?: string;
+  status?: string; // "Completed", "In Progress", "Maintained"
+  year?: string;
+  role?: string; // "Frontend Developer", "Full Stack Developer", etc.
+}
+
+const { 
+  title, 
+  description, 
+  technologies, 
+  image, 
+  url, 
+  githubUrl, 
+  liveUrl, 
+  status = "Completed",
+  year,
+  role 
+} = Astro.props;
+---
+
+<div class="sm:pl-4 sm:border-l sm:border-primary-700" data-technologies={technologies.join(',')} data-status={status}>
+  <article class="overflow-hidden divide-none">
+    <!-- Project Image -->
+    <div class="py-2 sm:px-6">
+      {url ? (
+        <a href={url} class="block transition-transform duration-200 hover:scale-105">
+          <img 
+            src={image} 
+            alt={title}
+            class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+          />
+        </a>
+      ) : (
+        <img 
+          src={image} 
+          alt={title}
+          class="w-full h-48 object-cover rounded-lg shadow-md"
+        />
+      )}
+    </div>
+
+    <!-- Project Header -->
+    <div class="flex flex-col gap-2 py-2 sm:px-6">
+      <div class="flex flex-row items-center justify-between">
+        <h3 class="text-xl font-semibold tracking-tight">{title}</h3>
+        <span class={`px-2 py-1 text-xs rounded-full ${
+          status === 'Completed' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' :
+          status === 'In Progress' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200' :
+          'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
+        }`}>
+          {status}
+        </span>
+      </div>
+      
+      <div class="flex flex-row gap-4 justify-start text-sm text-primary-400">
+        {year && <span>{year}</span>}
+        {role && <span>• {role}</span>}
+      </div>
+    </div>
+
+    <!-- Project Description -->
+    <div class="py-2 text-base sm:px-6 max-w-[65ch]">
+      {description}
+    </div>
+
+    <!-- Technologies Used -->
+    <div class="flex flex-col gap-4 py-2 sm:px-6">
+      <div>
+        <h4 class="text-sm font-medium text-primary-200 mb-2">Technologies</h4>
+        <ul class="flex flex-row flex-wrap gap-2">
+          {technologies.map((tech: string) => <Tag>{tech}</Tag>)}
+        </ul>
+      </div>
+
+      <!-- Action Links -->
+      <div class="flex flex-row gap-4 flex-wrap">
+        {url && <HighlightedLink href={url}>Learn More ›</HighlightedLink>}
+        {githubUrl && (
+          <a 
+            href={githubUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-accent-300 hover:text-accent-200 transition-colors duration-200 text-sm underline decoration-2 decoration-accent-300/60 hover:decoration-accent-300"
+          >
+            View Code ↗
+          </a>
+        )}
+        {liveUrl && (
+          <a 
+            href={liveUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-accent-300 hover:text-accent-200 transition-colors duration-200 text-sm underline decoration-2 decoration-accent-300/60 hover:decoration-accent-300"
+          >
+            Live Demo ↗
+          </a>
+        )}
+      </div>
+    </div>
+  </article>
+</div>
