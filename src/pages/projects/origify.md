@@ -18,6 +18,10 @@ isOpenSource: false
 
 Origify is a revolutionary mobile application that tackles the growing problem of counterfeit products by using advanced computer vision and machine learning technologies. The app allows users to verify product authenticity by simply scanning the product's surface texture with their smartphone camera.
 
+Sneak-peek of how it works:
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/ZI3AcTfszLc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Key Features
 
 ### 🔍 Texture Analysis
