@@ -88,54 +88,36 @@ const projects = allProjects.map(project => ({
     });
   }
 
+  // Add isHidden flag to each card
+  projectCards.forEach((card) => {
+    card.isHidden = false;
+  });
+
   function filterProjects() {
     let checkedTechs = Object.keys(techMap).filter((t) => techMap[t] === true);
 
-    // First, record current positions
-    const positions = new Map();
-    projectCards.forEach((card) => {
-      const rect = card.getBoundingClientRect();
-      positions.set(card, { x: rect.left, y: rect.top });
-    });
-
-    // Apply filtering - hide filtered cards completely to trigger grid reflow
     projectCards.forEach((projectCard) => {
       let technologies = projectCard.dataset.technologies ? projectCard.dataset.technologies.split(",") : [];
       let shouldShow = checkedTechs.length === 0 || checkedTechs.every((t) => technologies.includes(t));
       
-      if (shouldShow) {
+      if (shouldShow && projectCard.isHidden) {
+        // Show the card
+        projectCard.isHidden = false;
         projectCard.style.display = 'block';
         projectCard.classList.remove('filtered-out');
         projectCard.classList.add('filtered-in');
-      } else {
-        projectCard.style.display = 'none'; // Completely remove from layout
-      }
-    });
-
-    // Force layout recalculation
-    document.body.offsetHeight;
-
-    // Now animate the remaining cards to their new positions
-    projectCards.forEach((card) => {
-      if (card.style.display !== 'none') {
-        const oldPos = positions.get(card);
-        const newRect = card.getBoundingClientRect();
-        const newPos = { x: newRect.left, y: newRect.top };
+      } else if (!shouldShow && !projectCard.isHidden) {
+        // Hide the card
+        projectCard.isHidden = true;
+        projectCard.classList.remove('filtered-in');
+        projectCard.classList.add('filtered-out');
         
-        const deltaX = oldPos.x - newPos.x;
-        const deltaY = oldPos.y - newPos.y;
-        
-        if (Math.abs(deltaX) > 1 || Math.abs(deltaY) > 1) {
-          // Set initial position to where it was
-          card.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-          card.style.transition = 'none';
-          
-          // Animate to new position
-          requestAnimationFrame(() => {
-            card.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-            card.style.transform = 'translate(0, 0)';
-          });
-        }
+        // After fade animation, remove from layout
+        setTimeout(() => {
+          if (projectCard.isHidden) {
+            projectCard.style.display = 'none';
+          }
+        }, 150);
       }
     });
   }
