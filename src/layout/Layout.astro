@@ -150,34 +150,34 @@ const { pageTitle, description, type, publishedDate, updatedDate } = Astro.props
 
       @layer base {
         :root {
-          /* Clean white background with zinc text and teal accents */
-          --primary-50: 0 0 0;          /* Black for main text */
-          --primary-100: 24 24 27;      /* Very dark gray */
-          --primary-200: 39 39 42;      /* Dark gray */
-          --primary-300: 63 63 70;      /* Medium dark gray */
-          --primary-400: 82 82 91;      /* Medium gray */
-          --primary-500: 113 113 122;   /* Gray */
-          --primary-600: 161 161 170;   /* Light gray */
-          --primary-700: 212 212 216;   /* Very light gray */
-          --primary-800: 228 228 231;   /* Lighter gray */
-          --primary-900: 244 244 245;   /* Very light gray */
+          /* Keynest-inspired beige, green & white color palette */
+          --primary-50: 51 51 51;       /* Dark gray for main text */
+          --primary-100: 68 68 68;      /* Medium dark gray */
+          --primary-200: 85 85 85;      /* Medium gray */
+          --primary-300: 119 119 119;   /* Light gray */
+          --primary-400: 136 136 136;   /* Lighter gray */
+          --primary-500: 153 153 153;   /* Medium light gray */
+          --primary-600: 170 170 170;   /* Light gray */
+          --primary-700: 187 187 187;   /* Very light gray */
+          --primary-800: 245 242 237;   /* Light beige */
+          --primary-900: 251 248 243;   /* Very light beige */
 
-          /* Teal accent colors */
-          --accent-verylight: 153 246 228;
-          --accent-light: 94 234 212;
-          --accent-regular: 45 212 191;
-          --accent-dark: 20 184 166;
-          --accent-darkest: 17 94 89;
+          /* Green accent colors inspired by Keynest */
+          --accent-verylight: 165 214 167;  /* Light green */
+          --accent-light: 129 199 132;      /* Medium light green */
+          --accent-regular: 76 175 80;      /* Primary green */
+          --accent-dark: 56 142 60;         /* Dark green */
+          --accent-darkest: 27 94 32;       /* Very dark green */
 
-          /* Clean white backgrounds */
-          --main-bg: #ffffff;
-          --content-bg: #fafafa;
-          --lighter-content-bg: #f4f3f3;
+          /* Beige and white backgrounds */
+          --main-bg: #faf8f5;           /* Warm beige background */
+          --content-bg: #ffffff;        /* Pure white for content */
+          --lighter-content-bg: #fefefe; /* Slightly off-white */
 
-          --gradient-1: rgba(255, 255, 255, 0);
-          --gradient-2: #fafafad5;
-          --gradient-3-start: rgba(66, 240, 173, 0.1);
-          --gradient-3-end: rgba(45, 212, 191, 0.05);
+          --gradient-1: rgba(250, 248, 245, 0);
+          --gradient-2: #faf8f5;
+          --gradient-3-start: rgba(76, 175, 80, 0.05);
+          --gradient-3-end: rgba(76, 175, 80, 0.02);
         }
       }
 
