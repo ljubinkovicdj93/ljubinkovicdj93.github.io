@@ -73,7 +73,7 @@ const projects = allProjects.map(project => ({
 </Layout>
 
 <script define:vars={{ technologies }}>
-  let projectCards = document.querySelectorAll("div[data-technologies]");
+  let projectCards = document.querySelectorAll(".project-card");
   let filters = document.querySelectorAll("input");
 
   let techMap = Object.assign(...technologies.map((t) => ({ [t]: false })));
@@ -84,21 +84,59 @@ const projects = allProjects.map(project => ({
       let name = filter.name;
       techMap[name] = isChecked;
 
-      toggleVisibility();
+      filterProjects();
     });
   }
 
-  function toggleVisibility() {
+  function filterProjects() {
     let checkedTechs = Object.keys(techMap).filter((t) => techMap[t] === true);
 
-    for (const projectCard of projectCards) {
-      let technologies = projectCard.dataset.technologies ? projectCard.dataset.technologies.split(",") : [];
+    // First, record current positions
+    const positions = new Map();
+    projectCards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      positions.set(card, { x: rect.left, y: rect.top });
+    });
 
-      if (checkedTechs.length === 0 || checkedTechs.every((t) => technologies.includes(t))) {
-        projectCard.style.display = "block";
+    // Apply filtering - hide filtered cards completely to trigger grid reflow
+    projectCards.forEach((projectCard) => {
+      let technologies = projectCard.dataset.technologies ? projectCard.dataset.technologies.split(",") : [];
+      let shouldShow = checkedTechs.length === 0 || checkedTechs.every((t) => technologies.includes(t));
+      
+      if (shouldShow) {
+        projectCard.style.display = 'block';
+        projectCard.classList.remove('filtered-out');
+        projectCard.classList.add('filtered-in');
       } else {
-        projectCard.style.display = "none";
+        projectCard.style.display = 'none'; // Completely remove from layout
       }
-    }
+    });
+
+    // Force layout recalculation
+    document.body.offsetHeight;
+
+    // Now animate the remaining cards to their new positions
+    projectCards.forEach((card) => {
+      if (card.style.display !== 'none') {
+        const oldPos = positions.get(card);
+        const newRect = card.getBoundingClientRect();
+        const newPos = { x: newRect.left, y: newRect.top };
+        
+        const deltaX = oldPos.x - newPos.x;
+        const deltaY = oldPos.y - newPos.y;
+        
+        if (Math.abs(deltaX) > 1 || Math.abs(deltaY) > 1) {
+          // Set initial position to where it was
+          card.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+          card.style.transition = 'none';
+          
+          // Animate to new position
+          requestAnimationFrame(() => {
+            card.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            card.style.transform = 'translate(0, 0)';
+          });
+        }
+      }
+    });
   }
 </script>
