@@ -6,6 +6,6 @@ pubDate: July 24, 2025
 tags: ["Project"]
 ---
 
-![origify](/public/images/origify.png)
+![origify](/images/origify.png)
 
 Origify is a secure digital product authentication and verification app. It enables clients to take a picture of a product: watch, sneakers, printed cards, etc… and verify they are indeed an authentic/original product produced by that company.

@@ -6,6 +6,6 @@ pubDate: July 24, 2025
 tags: ["Project"]
 ---
 
-![charge my ev](/public/images/cmev.png)
+![charge my ev](/images/cmev.png)
 
 If you would like to find out more about it, feel free to e-mail me at [ljubinkovicdj93@gmail.com](mailto:ljubinkovicdj93@gmail.com)
