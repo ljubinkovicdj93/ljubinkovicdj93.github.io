@@ -243,8 +243,12 @@ const { pageTitle, description, type, publishedDate, updatedDate } = Astro.props
       }
 
       /* Project filtering animations */
+      .projects-grid {
+        transition: all 0.15s ease;
+      }
+      
       .project-card {
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition: opacity 0.15s ease, transform 0.15s ease;
         will-change: opacity, transform;
       }
 
