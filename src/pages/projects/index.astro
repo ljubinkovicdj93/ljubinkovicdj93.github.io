@@ -1,0 +1,340 @@
+---
+import IndividualProject from "../../components/IndividualProject.astro";
+import SelectableTag from "../../components/SelectableTag.astro";
+import Layout from "../../layout/Layout.astro";
+
+let allProjects = await Astro.glob("./*.md");
+// sort by year (newest first)
+allProjects = allProjects.sort((a, b) => {
+  let yearA = parseInt(a.frontmatter.year || "0"),
+    yearB = parseInt(b.frontmatter.year || "0");
+  if (yearA < yearB) return 1;
+  if (yearA > yearB) return -1;
+  return 0;
+});
+
+// Separate open-source and closed-source projects
+const openSourceProjects = allProjects.filter(project => project.frontmatter.isOpenSource === true);
+const closedSourceProjects = allProjects.filter(project => project.frontmatter.isOpenSource === false);
+
+const technologies = [
+  ...new Set(
+    allProjects
+      .map((project) => project.frontmatter.technologies)
+      .flat()
+      .sort()
+  ),
+];
+
+const statuses = [
+  ...new Set(
+    allProjects
+      .map((project) => project.frontmatter.status)
+      .filter(Boolean)
+      .sort()
+  ),
+];
+---
+
+<Layout
+  pageTitle="Project Portfolio"
+  description="Explore my collection of software development projects, from mobile apps to web applications."
+  type="website"
+>
+  <main class="px-8 pt-16 mx-auto max-w-6xl sm:pt-24 lg:px-16">
+    <div class="flex flex-col mt-4 space-y-8">
+      <div class="flex flex-col space-y-4">
+        <h1
+          class="text-4xl font-bold tracking-tighter sm:text-5xl max-w-[25ch]"
+        >
+          Project Portfolio
+        </h1>
+        <p class="text-primary-300 max-w-[65ch]">
+          A showcase of my software development projects, featuring mobile applications, 
+          web platforms, and innovative solutions across various technologies.
+        </p>
+
+        <p class="text-primary-300 max-w-[75ch]">
+          Each project represents a unique challenge and demonstrates different aspects 
+          of my technical expertise and problem-solving approach.
+        </p>
+        
+        <h2
+          class="text-3xl font-bold tracking-tighter sm:text-4xl max-w-[25ch]"
+        >
+          All Projects
+        </h2>
+        <p class="text-primary-300 max-w-[75ch]">
+          Explore both my open-source contributions and professional client work. 
+          Open-source projects include full code access, while client projects showcase 
+          my professional experience and problem-solving capabilities.
+        </p>
+      </div>
+
+      <!-- Project Type Toggle -->
+      <div class="flex flex-col space-y-4">
+        <h3 class="text-lg font-semibold text-primary-200">Project Type</h3>
+        <div class="flex flex-wrap gap-2">
+          <button 
+            class="project-type-filter active px-4 py-2 rounded-lg bg-accent-600 text-white transition-colors"
+            data-type="all"
+          >
+            All Projects ({allProjects.length})
+          </button>
+          <button 
+            class="project-type-filter px-4 py-2 rounded-lg bg-primary-800 text-primary-200 hover:bg-primary-700 transition-colors"
+            data-type="open-source"
+          >
+            🔓 Open Source ({openSourceProjects.length})
+          </button>
+          <button 
+            class="project-type-filter px-4 py-2 rounded-lg bg-primary-800 text-primary-200 hover:bg-primary-700 transition-colors"
+            data-type="closed-source"
+          >
+            🏢 Client Work ({closedSourceProjects.length})
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter by Technology -->
+      <div class="flex flex-col space-y-4">
+        <h3 class="text-lg font-semibold text-primary-200">Filter by Technology</h3>
+        <div class="flex flex-wrap gap-2">
+          <SelectableTag name="All" />
+          {technologies.map((tech) => (
+            <SelectableTag name={tech} />
+          ))}
+        </div>
+      </div>
+
+      <!-- Filter by Status -->
+      <div class="flex flex-col space-y-4">
+        <h3 class="text-lg font-semibold text-primary-200">Filter by Status</h3>
+        <div class="flex flex-wrap gap-2">
+          <SelectableTag name="All" />
+          {statuses.map((status) => (
+            <SelectableTag name={status} />
+          ))}
+        </div>
+      </div>
+
+      <!-- Open Source Projects Section -->
+      <div id="open-source-section" class="project-section">
+        <div class="flex items-center gap-3 mb-6">
+          <h3 class="text-2xl font-bold text-primary-100">🔓 Open Source Projects</h3>
+          <span class="px-3 py-1 text-sm bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded-full">
+            Free to explore & contribute
+          </span>
+        </div>
+        <p class="text-primary-300 mb-6 max-w-[75ch]">
+          These projects are publicly available on GitHub. Feel free to explore the code, 
+          contribute improvements, or use them as learning resources. All include comprehensive 
+          documentation and welcome community contributions.
+        </p>
+        <div class="grid gap-8 grid-cols-1 lg:grid-cols-2">
+          {
+            openSourceProjects.map((project) => (
+              <IndividualProject
+                title={project.frontmatter.title}
+                description={project.frontmatter.description}
+                technologies={project.frontmatter.technologies || []}
+                image={project.frontmatter.image || "/images/placeholder.png"}
+                url={project.url}
+                githubUrl={project.frontmatter.githubUrl}
+                liveUrl={project.frontmatter.liveUrl}
+                status={project.frontmatter.status}
+                year={project.frontmatter.year}
+                role={project.frontmatter.role}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Closed Source Projects Section -->
+      <div id="closed-source-section" class="project-section">
+        <div class="flex items-center gap-3 mb-6">
+          <h3 class="text-2xl font-bold text-primary-100">🏢 Professional Client Work</h3>
+          <span class="px-3 py-1 text-sm bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full">
+            Production applications
+          </span>
+        </div>
+        <p class="text-primary-300 mb-6 max-w-[75ch]">
+          These are commercial projects developed for clients and companies. While the source code 
+          is proprietary, these projects showcase my professional experience, problem-solving skills, 
+          and ability to deliver production-ready applications.
+        </p>
+        <div class="grid gap-8 grid-cols-1 lg:grid-cols-2">
+          {
+            closedSourceProjects.map((project) => (
+              <IndividualProject
+                title={project.frontmatter.title}
+                description={project.frontmatter.description}
+                technologies={project.frontmatter.technologies || []}
+                image={project.frontmatter.image || "/images/placeholder.png"}
+                url={project.url}
+                githubUrl={project.frontmatter.githubUrl}
+                liveUrl={project.frontmatter.liveUrl}
+                status={project.frontmatter.status}
+                year={project.frontmatter.year}
+                role={project.frontmatter.role}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <h3 class="text-3xl font-bold text-accent-300">{allProjects.length}</h3>
+          <p class="text-primary-300">Total Projects</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-3xl font-bold text-green-400">{openSourceProjects.length}</h3>
+          <p class="text-primary-300">Open Source</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-3xl font-bold text-blue-400">{closedSourceProjects.length}</h3>
+          <p class="text-primary-300">Client Projects</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-3xl font-bold text-accent-300">{technologies.length}</h3>
+          <p class="text-primary-300">Technologies</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script define:vars={{ technologies, statuses }}>
+  // Global variable to track current technology filter
+  let currentActiveFilter = 'All';
+  
+  // Project type filtering
+  const projectTypeFilters = document.querySelectorAll('.project-type-filter');
+  const projectSections = document.querySelectorAll('.project-section');
+
+  projectTypeFilters.forEach(filter => {
+    filter.addEventListener('click', () => {
+      const filterType = filter.getAttribute('data-type');
+      
+      // Update active states
+      projectTypeFilters.forEach(f => {
+        f.classList.remove('active', 'bg-accent-600', 'text-white');
+        f.classList.add('bg-primary-800', 'text-primary-200');
+      });
+      filter.classList.add('active', 'bg-accent-600', 'text-white');
+      filter.classList.remove('bg-primary-800', 'text-primary-200');
+
+      // Show/hide sections
+      projectSections.forEach(section => {
+        section.classList.add('hidden');
+      });
+
+      if (filterType === 'all') {
+        // Show both separated sections for "All Projects"
+        document.getElementById('open-source-section')?.classList.remove('hidden');
+        document.getElementById('closed-source-section')?.classList.remove('hidden');
+      } else if (filterType === 'open-source') {
+        document.getElementById('open-source-section')?.classList.remove('hidden');
+      } else if (filterType === 'closed-source') {
+        document.getElementById('closed-source-section')?.classList.remove('hidden');
+      }
+
+      // Reset technology filter - show all projects in visible sections
+      const visibleSections = document.querySelectorAll('.project-section:not(.hidden)');
+      visibleSections.forEach(section => {
+        const projectCards = section.querySelectorAll('[data-technologies]');
+        projectCards.forEach(card => {
+          card.style.display = 'block';
+        });
+      });
+
+      // Reset technology filter buttons and tracking variable
+      const selectableTags = document.querySelectorAll('[data-selectable="true"]');
+      selectableTags.forEach(t => t.classList.remove('active'));
+      // Set "All" technology filter as active
+      const allTechFilter = Array.from(selectableTags).find(tag => tag.textContent?.trim() === 'All');
+      allTechFilter?.classList.add('active');
+      currentActiveFilter = 'All'; // Reset the tracking variable
+    });
+  });
+
+  // Technology and Status filtering with toggle functionality
+  const selectableTags = document.querySelectorAll('[data-selectable="true"]');
+  // Add 'All' to both arrays for filtering logic
+  const allTechnologies = ['All', ...technologies];
+  const allStatuses = ['All', ...statuses];
+
+  selectableTags.forEach(tag => {
+    tag.addEventListener('click', () => {
+      const filterValue = tag.textContent?.trim();
+      
+      // Determine if this is a technology or status filter
+      const isTechnologyFilter = allTechnologies.includes(filterValue || '');
+      const isStatusFilter = allStatuses.includes(filterValue || '');
+      
+      // Toggle functionality: if clicking the same filter, reset to "All"
+      if (currentActiveFilter === filterValue && filterValue !== 'All') {
+        // Reset to "All" - deselect current filter
+        selectableTags.forEach(t => t.classList.remove('active'));
+        const allTag = Array.from(selectableTags).find(t => t.textContent?.trim() === 'All');
+        allTag?.classList.add('active');
+        currentActiveFilter = 'All';
+        
+        // Show all projects
+        const visibleSections = document.querySelectorAll('.project-section:not(.hidden)');
+        visibleSections.forEach(section => {
+          const projectCards = section.querySelectorAll('[data-technologies]');
+          projectCards.forEach(card => {
+            card.style.display = 'block';
+          });
+        });
+      } else {
+        // Normal filtering - set new active filter
+        selectableTags.forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+        currentActiveFilter = filterValue || 'All';
+
+        // Filter projects in all visible sections
+        const visibleSections = document.querySelectorAll('.project-section:not(.hidden)');
+        visibleSections.forEach(section => {
+          const projectCards = section.querySelectorAll('[data-technologies]');
+          projectCards.forEach(card => {
+            const technologies = card.getAttribute('data-technologies')?.split(',') || [];
+            const status = card.getAttribute('data-status');
+            let shouldShow = false;
+            
+            if (filterValue === 'All') {
+              shouldShow = true;
+            } else if (isTechnologyFilter) {
+              shouldShow = technologies.includes(filterValue || '');
+            } else if (isStatusFilter) {
+              shouldShow = status === filterValue;
+            }
+            
+            if (shouldShow) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      }
+    });
+  });
+
+  // Initialize - show separated sections by default
+  document.addEventListener('DOMContentLoaded', () => {
+    // Show the separated sections by default
+    document.getElementById('open-source-section')?.classList.remove('hidden');
+    document.getElementById('closed-source-section')?.classList.remove('hidden');
+  });
+</script>
+
+<style>
+  .active {
+    @apply bg-accent-600 text-white;
+  }
+</style>
