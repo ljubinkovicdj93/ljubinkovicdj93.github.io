@@ -1,56 +1,114 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import ArrowCard from "@components/ArrowCard.astro";
-import { BLOG } from "@consts";
+import BlogPost from "@components/BlogPost.astro";
+import SelectableTag from "@components/SelectableTag.astro";
+import Layout from "@layout/Layout.astro";
 
-const data = (await getCollection("blog"))
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-  
-type Acc = {
-  [year: string]: CollectionEntry<"blog">[];
-}
+import readingTime from "reading-time";
 
-const posts = data.reduce((acc: Acc, post) => {
-    const year = post.data.date.getFullYear().toString();
-    if (!acc[year]) {
-      acc[year] = [];
-    }
-    acc[year].push(post);
-    return acc;
-  }, {});
+let allPosts = await Astro.glob("./*.md");
+// sort by date
+allPosts = allPosts.sort((a, b) => {
+  let dateA = new Date(a.frontmatter.pubDate),
+    dateB = new Date(b.frontmatter.pubDate);
+  if (dateA < dateB) return 1;
+  if (dateA > dateB) return -1;
+  return 0;
+});
 
-const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a)); 
+const tags = [
+  ...new Set(
+    allPosts
+      .map((post) => post.frontmatter.tags)
+      .flat()
+      .sort()
+  ),
+];
 ---
 
-<PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
-  <Container>
-    <div class="space-y-10">
-      <div class="animate font-semibold text-black dark:text-white">
-        Blog
+<Layout
+  pageTitle="Blog"
+  description="Talk is cheap, show me the code DJOLE. "
+  type="article"
+>
+  <main class="px-8 pt-16 mx-auto max-w-6xl sm:pt-24 lg:px-16">
+    <div class="flex flex-col mt-4 space-y-8">
+      <div class="flex flex-col space-y-4">
+        <h1
+          class="text-4xl font-bold tracking-tighter sm:text-5xl max-w-[25ch]"
+        >
+        Skills showcase
+        </h1>
+        <p class="text-primary-300 max-w-[65ch]">
+          Talk is cheap, show me the code 💵! 
+        </p>
+
+        <p class="text-primary-300 max-w-[75ch]">
+          Explore collection of my blog posts and projects
+        </p>
+        
+        <h2
+          class="text-3xl font-bold tracking-tighter sm:text-4xl max-w-[25ch]"
+        >
+          Filter by category:
+        </h2>
       </div>
-      <div class="space-y-4">
-        {years.map(year => (
-          <section class="animate space-y-4">
-            <div class="font-semibold text-black dark:text-white">
-              {year}
-            </div>
-            <div>
-              <ul class="flex flex-col gap-4">
+      <div class="mb-8">
+        <ul class="flex flex-row flex-wrap gap-2">
+          {tags.map((t) => <SelectableTag name={t} />)}
+        </ul>
+      </div>
+      <div class="flex flex-col gap-8">
+        {
+          allPosts.map((p) => (
+            <BlogPost
+              date={new Date(p.frontmatter.pubDate).toLocaleDateString(
+                "en-US",
                 {
-                  posts[year].map((post) => (
-                    <li>
-                      <ArrowCard entry={post}/>
-                    </li>
-                  ))
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
                 }
-              </ul>
-            </div>
-          </section>
-        ))}
+              )}
+              readTime={readingTime(p.rawContent()).text}
+              title={p.frontmatter.title}
+              description={p.frontmatter.description}
+              tags={p.frontmatter.tags}
+              url={p.url}
+            />
+          ))
+        }
       </div>
     </div>
-  </Container>
-</PageLayout>
+  </main>
+</Layout>
+
+<script define:vars={{ tags }}>
+  let blogPosts = document.querySelectorAll("div[data-tags]");
+  let filters = document.querySelectorAll("input");
+
+  let tagMap = Object.assign(...tags.map((t) => ({ [t]: false })));
+
+  for (const filter of filters) {
+    filter.addEventListener("change", (e) => {
+      let isChecked = e.target.checked;
+      let name = filter.name;
+      tagMap[name] = isChecked;
+
+      toggleVisibility();
+    });
+  }
+
+  function toggleVisibility() {
+    let checkedTags = Object.keys(tagMap).filter((t) => tagMap[t] === true);
+
+    for (const blogPost of blogPosts) {
+      let tags = blogPost.dataset.tags.split(",");
+
+      if (checkedTags.every((t) => tags.includes(t))) {
+        blogPost.style.display = "block";
+      } else {
+        blogPost.style.display = "none";
+      }
+    }
+  }
+</script>

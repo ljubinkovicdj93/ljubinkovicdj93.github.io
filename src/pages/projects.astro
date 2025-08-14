@@ -1,0 +1,82 @@
+---
+import ProjectsGrid from "@components/ProjectsGrid.astro";
+import Layout from "@layout/Layout.astro";
+
+const projects = [
+  {
+    name: "Origify",
+    description:
+      "Origify verifies the authenticity of a product by scanning its texture and matching it with a database of verified products.",
+    link: "/blog/origify",
+    img: "/public/images/origify.png"
+  },
+  {
+    name: "CMEV - Charge My EV",
+    description:
+      "Charge My Electric Vehicle makes it easy to find charge points, charge electricity and pay with just one account at more than 260 000 charge points in 29 countries.",
+    link: "/blog/charge-my-ev",
+    img: "/public/images/cmev.png"
+  },
+  {
+    name: "Hobbii",
+    description:
+      "Hobbii is an online yarn and craft supply retailer offering quality products for knitting and crochet enthusiasts. They provide yarns, patterns, tools, and tutorials for crafters of all skill levels.",
+    link: "/blog/hobbii",
+    img: "/public/images/hobbii.png"
+  },
+  {
+    name: "Tapp",
+    description:
+      "Tapp is a customer care app for Digi, a Malaysian operator. Built with Clean Swift architecture, it features OCR scanning for vouchers and Malaysian ID cards for user registration.",
+    link: "/blog/tapp",
+    img: "/public/images/tapp.png"
+  },
+  {
+    name: "Aura Home",
+    description:
+      "Aura Home app uses RF signals for indoor motion detection with real-time alerts. Features include in-app purchases, geofence monitoring, and location-based notifications.",
+    link: "/blog/aura",
+    img: "/public/images/aura.png"
+  },
+  {
+    name: "Emme",
+    description:
+      "Emme is a smart birth control pill management app that pairs with a Cadence case via BLE. The system tracks pill usage, monitors adherence, and provides timely recommendations for maintaining effective birth control. User data is securely stored using Firestore for both online and offline access.",
+    link: "/blog/emme",
+    img: "/public/images/emme.png"
+  },
+  {
+    name: "What Pros Wear",
+    description:
+      "A platform for discovering and purchasing professional baseball players' gear. Features include favorites, filtering, and social interaction - like Pinterest for baseball equipment.",
+    link: "/blog/wpw",
+    img: "/public/images/wpw.jpg"
+  },
+];
+---
+
+<Layout
+  pageTitle="Projects"
+  description="Things I've built for both work and pleasure, ljubinkovicdj93"
+  type="content"
+>
+  <main class="px-8 pt-16 mx-auto max-w-6xl sm:pt-24 lg:px-16">
+    <div class="flex flex-col mt-4 space-y-8">
+      <div class="flex flex-col space-y-4">
+        <h1
+          class="text-4xl font-bold tracking-tighter sm:text-5xl max-w-[25ch]"
+        >
+        Things I've built for both work and pleasure
+        </h1>
+        <p class="text-primary-300 max-w-[65ch]">
+          Showcasing a selection of my public projects. Many others remain private.
+        </p>
+
+        <p class="text-primary-300 max-w-[65ch]"> 
+          Feel free to explore the code of any open-source projects that spark your interest.
+        </p>
+      </div>
+      <ProjectsGrid projects={projects} />
+    </div>
+  </main>
+</Layout>
