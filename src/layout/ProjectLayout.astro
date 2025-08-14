@@ -102,3 +102,15 @@ const today = new Date().toLocaleDateString('en-US', { month: 'long', day: 'nume
     </article>
   </main>
 </Layout>
+
+<style>
+  /* Style iframes to match images */
+  article iframe {
+    border-radius: 1.5rem; /* rounded-2xl equivalent to match prose-img:rounded-2xl */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md equivalent */
+    margin: 0 auto; /* mx-auto equivalent */
+    display: block;
+    width: 100%;
+    min-height: 400px;
+  }
+</style>
